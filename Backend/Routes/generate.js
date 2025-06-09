@@ -50,6 +50,10 @@ ${notes}` // Inject user-provided notes here for AI to process
 
     // Log the generated flashcards to the console for verification
     console.log("✅ Flashcards Generated:\n", flashcards);
+
+    // Return the flashcards array for further use (e.g., sending to client)
+    return flashcards;
+    
   } catch (err) {
     // Handle and log any errors that occur during the API call or JSON parsing
     console.error("❌ Error:", err.message);
@@ -58,3 +62,8 @@ ${notes}` // Inject user-provided notes here for AI to process
 
 // 👇 Test the function by passing sample notes
 generateFlashcards("The mitochondria is the powerhouse of the cell. It produces ATP through cellular respiration.");
+
+// Export the function for use in other parts of the application  
+module.exports = generateFlashcards; // Make the function available for import in other files
+// This allows the function to be reused in different parts of the backend application
+// and keeps the code modular and organized.
